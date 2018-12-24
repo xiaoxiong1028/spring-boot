@@ -8,10 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
-@EnableAsync
-@EnableScheduling
-@ComponentScan(basePackages = {"com.ibears"})
 public class Application {
 
 	public static void main(String[] args) {
