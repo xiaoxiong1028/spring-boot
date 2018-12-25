@@ -1,4 +1,4 @@
-package com.ibears.miaosha.start;
+package com.ibears.miaosha;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
