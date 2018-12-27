@@ -15,5 +15,5 @@ public interface KeyPrefix {
      *
      * @return
      */
-    String getExpireSeconds();
+    String getPrefix();
 }

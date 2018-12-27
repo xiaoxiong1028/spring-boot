@@ -8,7 +8,7 @@ public class UserKey extends BasePrefix {
     
     
     public UserKey(String prefix) {
-        super(prefix);
+        super(0,prefix);
     }
     
     public static UserKey getById = new UserKey("id");

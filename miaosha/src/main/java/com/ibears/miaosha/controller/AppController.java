@@ -1,6 +1,8 @@
 package com.ibears.miaosha.controller;
 
+import com.ibears.miaosha.domain.User;
 import com.ibears.miaosha.redis.RedisService;
+import com.ibears.miaosha.redis.UserKey;
 import com.ibears.miaosha.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +22,14 @@ public class AppController {
     
     @RequestMapping(value = "/redis/get")
     public Result<String> redisGet() {
-        String key1 = redisService.getString("key1", String.class);
+        String key1 = redisService.getString(UserKey.getById,"key1", String.class);
         return Result.success(key1);
     }
     
     @RequestMapping(value = "/redis/set")
     public Result<Boolean> redisSet() {
-        boolean key1 = redisService.set("key1", "ceshi");
+        User user= new User(1L,"用户");
+        boolean key1 = redisService.set(UserKey.getById,"key1", user);
         return Result.success(key1);
     }
     

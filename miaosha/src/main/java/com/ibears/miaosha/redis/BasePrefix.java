@@ -26,19 +26,17 @@ public abstract class BasePrefix implements KeyPrefix {
         return expireSeconds;
     }
     
+    
     @Override
-    public String getExpireSeconds() {
+    public String getPrefix() {
         String className = getClass().getSimpleName();
         return className + ":" + prefix;
     }
     
     
+    
     public void setExpireSeconds(int expireSeconds) {
         this.expireSeconds = expireSeconds;
-    }
-    
-    public String getPrefix() {
-        return prefix;
     }
     
     public void setPrefix(String prefix) {
