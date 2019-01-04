@@ -19,26 +19,10 @@ public class MD5Util {
         return DigestUtils.md2Hex(src);
     }
     
-    private static final String slat = "12dgfgjhfgyjgyj";
-    
-    
-    public static String inputPassFromPass(String inputPass) {
-        String str = "" + slat.charAt(0) + slat.charAt(2) + inputPass + slat.charAt(4) + slat.charAt(5);
-        return md5(str);
-        
-    }
-    
-    public static String fromPassToDBPass(String formPass, String slat) {
+   
+    public static String inputPassToDBPass(String formPass, String slat) {
         String str = "" + slat.charAt(0) + slat.charAt(2) + formPass + slat.charAt(4) + slat.charAt(5);
         return md5(str);
-    }
-    
-    
-    public static String inputPassToDBPass(String inputPass, String slat) {
-        String fromPass = inputPassFromPass(inputPass);
-        System.out.println(fromPass);
-        String dbPass   = fromPassToDBPass(fromPass, slat);
-        return dbPass;
     }
     
     

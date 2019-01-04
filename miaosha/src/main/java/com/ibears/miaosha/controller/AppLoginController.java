@@ -1,11 +1,8 @@
 package com.ibears.miaosha.controller;
 
-import com.alibaba.druid.util.StringUtils;
 import com.ibears.miaosha.redis.RedisService;
-import com.ibears.miaosha.result.CodeMassage;
 import com.ibears.miaosha.result.Result;
 import com.ibears.miaosha.service.MiaoshaUserService;
-import com.ibears.miaosha.util.ValidtaorUtil;
 import com.ibears.miaosha.vo.LoginVo;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -43,21 +40,8 @@ public class AppLoginController {
     @ResponseBody
     public Result<Boolean> doLogin(@Valid LoginVo loginVo) {
         logger.info(loginVo.toString());
-        if (StringUtils.isEmpty(loginVo.getMobile())) {
-            return Result.erro(CodeMassage.MOBILE_EMPTY);
-        }
-        if (!ValidtaorUtil.isMobile(loginVo.getMobile())) {
-            return Result.erro(CodeMassage.MOBILE_ERROR);
-        }
-        if (StringUtils.isEmpty(loginVo.getPassword())) {
-            return Result.erro(CodeMassage.PASSWORD_EMPTY);
-        }
-        CodeMassage codeMassage = miaoshaUserService.Login(loginVo);
-        if (codeMassage.equals(CodeMassage.SUCCESS)) {
-            //登陆成功
-            return Result.success(true);
-        }
-        return Result.erro(codeMassage);
+        miaoshaUserService.Login(loginVo);
+        return Result.success(true);
     }
     
     

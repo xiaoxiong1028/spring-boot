@@ -1,13 +1,21 @@
 package com.ibears.miaosha.vo;
 
+import com.ibears.miaosha.validatior.IsMobile;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+
 /**
  * @author xiaoxiong
  * @date 2018/12/29 13:15
  */
 public class LoginVo {
     
-    private String  mobile;
+    @NotNull
+    @IsMobile
+    private String mobile;
     
+    @NotNull
+    @Length(min = 6)
     private String password;
     
     public String getMobile() {

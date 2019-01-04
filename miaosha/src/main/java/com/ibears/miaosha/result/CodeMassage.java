@@ -53,7 +53,6 @@ public class CodeMassage {
         this.codeMassage = codeMassage;
     }
     
-    
     public CodeMassage fillArgs(Object... objects) {
         int    code    = this.code;
         String message = String.format(this.codeMassage, objects);

@@ -12,9 +12,9 @@ spring:
 #数据库
   datasource:
      name: demo
-     url: jdbc:mysql://192.168.150.129:3306/miaosha?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&useCompression=true&zeroDateTimeBehavior=convertToNull
+     url: jdbc:mysql://192.168.233.130:3306/miaosha?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&useCompression=true&zeroDateTimeBehavior=convertToNull
      username: root
-     password: root
+     password: 123456
      type: com.alibaba.druid.pool.DruidDataSource
      driver-class-name: com.mysql.jdbc.Driver
      filters: stat
@@ -41,7 +41,7 @@ mybatis:
 
 #redis
 redis:
-  host: 192.168.150.129
+  host: 192.168.233.130
   port: 6379
   password: 123456
   timeout: 20000

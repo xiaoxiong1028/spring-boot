@@ -14,18 +14,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @date 2018/12/30 20:14
  */
 @RestControllerAdvice
-public class GlobleExceptionHandler {
+public class GlobalExceptionHandler {
     
     
     @ExceptionHandler(value = Exception.class)
     public Result<String> exceptionHandler(HttpServletRequest request, Exception e) {
-        if (e instanceof BindException) {
-            BindException     bindException = (BindException) e;
-            List<ObjectError> errors     = ((BindException) e).getAllErrors();
-            ObjectError       error   = errors.get(0);
+        if (e instanceof GlobalException) {
+            GlobalException  error =  (GlobalException)e;
+            return Result.erro(error.getCodeMassage());
+        } else if (e instanceof BindException) {
+            List<ObjectError> errors         = ((BindException) e).getAllErrors();
+            ObjectError       error          = errors.get(0);
             String            defaultMessage = error.getDefaultMessage();
             return Result.erro(CodeMassage.BIND_ERROR.fillArgs(defaultMessage));
-        }else {
+        } else {
             return Result.erro(CodeMassage.SERVER_ERROR);
         }
     }
