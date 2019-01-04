@@ -4,6 +4,7 @@ import com.ibears.miaosha.redis.RedisService;
 import com.ibears.miaosha.result.Result;
 import com.ibears.miaosha.service.MiaoshaUserService;
 import com.ibears.miaosha.vo.LoginVo;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,11 +39,14 @@ public class AppLoginController {
     
     @PostMapping(value = "/do_login")
     @ResponseBody
-    public Result<Boolean> doLogin(@Valid LoginVo loginVo) {
+    public Result<Boolean> doLogin(HttpServletResponse response ,@Valid LoginVo loginVo) {
         logger.info(loginVo.toString());
-        miaoshaUserService.Login(loginVo);
+        miaoshaUserService.Login(response,loginVo);
         return Result.success(true);
     }
+    
+    
+    
     
     
 }

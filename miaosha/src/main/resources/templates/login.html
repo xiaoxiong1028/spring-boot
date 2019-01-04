@@ -69,7 +69,6 @@ function doLogin(){
 	g_showLoading();
 	
 	var inputPass = $("#password").val();
-	var salt = g_passsword_salt;
 	var password = inputPass;
 	$.ajax({
 		url: "/login/do_login",

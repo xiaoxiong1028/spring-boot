@@ -1,7 +1,9 @@
 package com.ibears.miaosha.service;
 
+import com.ibears.miaosha.domain.MiaoshaUser;
 import com.ibears.miaosha.result.CodeMassage;
 import com.ibears.miaosha.vo.LoginVo;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author xiaoxiong
@@ -9,11 +11,21 @@ import com.ibears.miaosha.vo.LoginVo;
  */
 public interface MiaoshaUserService {
     
+    
+    public static final String COOKIE_NAME_TOKEN = "token";
+    
     /**
      * 登陆方法
      * @param loginVo
      * @return
      */
-    CodeMassage Login(LoginVo loginVo);
+    CodeMassage Login(HttpServletResponse response ,LoginVo loginVo);
+    
+    /**
+     * 获取用户信息
+     * @param token
+     * @return
+     */
+    MiaoshaUser getByToken(String token);
     
 }
