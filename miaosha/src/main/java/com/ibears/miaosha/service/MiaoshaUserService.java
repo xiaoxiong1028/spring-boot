@@ -26,6 +26,6 @@ public interface MiaoshaUserService {
      * @param token
      * @return
      */
-    MiaoshaUser getByToken(String token);
+    MiaoshaUser getByToken(HttpServletResponse response,String token);
     
 }
